@@ -1,21 +1,27 @@
-# Docker Manager interface for LuCI
+# Luci-app-dockerman
 
-## 适用于 LuCI 的 Docker 管理插件
-用于管理 Docker 容器、镜像、网络，适用于自带 Docker 的 Openwrt系统、运行在 Docker 中的 openwrt 或 [LuCI-in-docker](https://github.com/lisaac/luci-in-docker).
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/lisaac/luci-app-dockerman?style=flat-square)](https://github.com/lisaac/luci-app-dockerman/releases)
+[![GitHub stars](https://img.shields.io/github/stars/lisaac/luci-app-dockerman?style=flat-square)](https://github.com/lisaac/luci-app-dockerman/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lisaac/luci-app-dockerman?style=flat-square)](https://github.com/lisaac/luci-app-dockerman/network/members)
+[![License](https://img.shields.io/github/license/lisaac/luci-app-dockerman?style=flat-square)](https://github.com/lisaac/luci-app-dockerman/blob/master/LICENSE)
+[![Telegram Group](https://img.shields.io/badge/telegam-group-_?style=flat-square)](https://t.me/joinchat/G5mqjhrlU9S8TMkXeBmj0w)
+<!-- ![GitHub All Releases](https://img.shields.io/github/downloads/lisaac/luci-app-dockerman/total?style=flat-square) -->
 
-### Depends/依赖
-- luci-lib-json
+## Docker Manager for LuCI / 适用于 LuCI 的 Docker 管理插件
+- 一个用于管理 Docker 容器、镜像、网络、存储卷的 Openwrt 插件
+- 同时也适用于 [Openwrt-in-docker](https://github.com/lisaac/openwrt-in-docker) 或 [LuCI-in-docker](https://github.com/lisaac/luci-in-docker)
+- [Download / 下载 ipk](https://github.com/lisaac/luci-app-dockerman/releases)
+
+## Depends / 依赖
 - [luci-lib-docker](https://github.com/lisaac/luci-lib-docker)
+- docker-ce (optional, since you can use it as a docker client)
+- luci-lib-jsonc
+- ttyd (optional, use for container console)
 
-### Compile/编译
+## Compile / 编译
 ```bash
-./scripts/feeds update luci-lib-json
-./scripts/feeds install luci-lib-json
-git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
-git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 
 #compile package only
-make package/luci-lib-json/compile V=99
 make package/luci-lib-docker/compile v=99
 make package/luci-app-dockerman/compile v=99
 
@@ -27,10 +33,7 @@ make menuconfig
 make V=99
 ```
 
-### Download /下载
-- [ipk file](https://github.com/lisaac/luci-app-dockerman/releases)
-
-### Screenshot/截图
+## Screenshot / 截图
 - Containers
 ![](https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/doc/containers.png)
 - Container Info
@@ -50,10 +53,5 @@ make V=99
 - New Network
 ![](https://raw.githubusercontent.com/lisaac/luci-app-dockerman/master/doc/new_network.png)
 
-### Thanks
+## Thanks / 谢致
 - Chinese translation by [401626436](https://www.right.com.cn/forum/space-uid-382335.html)
-
-### TODO:
-- images: edit_tag / import
-- new network: analyze command line string
-- container: download & upload files
